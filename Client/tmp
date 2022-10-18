@@ -1,0 +1,18 @@
+import RPi.GPIO as GPIO
+from time import sleep
+
+GPIO.setmode(GPIO.BCM)                                  # Nutze Bezeichnung BCM zum Ansprechen der Pins
+
+InputPin = 17                                           # GPIO 17, am Index 11
+GPIO.setup(InputPin, GPIO.IN)                           # Pin als Input definieren (Pins am Raspb. sind je ins/outs!)
+
+while 1:
+    state = GPIO.input(InputPin)                        #Abfrage des Zustandes an definiertem Pin
+    print("Der Zustand ist: ", str(state))
+    sleep(1)
+
+# "scp .\gpio_ansteuern.py pi@192.168.187.153:/home/pi/tmp"
+# um Datei auf raspi in Verzeichnis tmp zu kopieren
+# mit ssh pi@192.168.187.153 mit raspi verbinden, mit cd in Verzeichnis wechseln
+# ausführen des Scripts mittels "python <DATEINAME>"
+# output: "Der Zustand ist: 0"

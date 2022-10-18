@@ -1,0 +1,11 @@
+Pinout
+Raspberry Pi:
+
+Matrix:
+    MOSI GPIO 10
+    CLK  GPIO 11
+    CS   GPIO 8
+Sensor:
+    Sensor 1 wire GPIO 4
+Button:
+    Btn  GPIO 17

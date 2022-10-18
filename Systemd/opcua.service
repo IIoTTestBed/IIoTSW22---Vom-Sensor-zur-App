@@ -1,0 +1,21 @@
+# If you modify this, please also make sure to edit init.sh
+
+[Unit]
+Description=OPCUA Server
+#Documentation=siehe David Heik
+After=network-online.target
+
+[Service]
+User=pi
+Group=pi
+#LimitNOFILE=65536
+#EnvironmentFile=-/etc/default/influxdb2
+ExecStart=/usr/bin/python /home/pi/OPCUA-Server.py
+#KillMode=control-group
+#Restart=never
+Type=simple
+PIDFile=/tmp/opcua.pid
+
+[Install]
+WantedBy=multi-user.target
+Alias=opcua.service
